@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Boyfriend's Day, My Loveee! 🌷❤️</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at 50% 15%, #2a0b1c 0%, #12030d 55%, #050104 100%); overflow-x: hidden; padding: 24px 14px; color: #fff; }
+    .bubble { position: fixed; bottom: -40px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255, 182, 193, 0.75), rgba(255, 105, 180, 0.18) 70%, rgba(255, 20, 147, 0.45) 100%); box-shadow: 0 0 15px rgba(255, 105, 180, 0.35), inset 0 0 8px rgba(255, 255, 255, 0.7); animation: floatUp linear infinite; pointer-events: none; z-index: 1; }
+    .floating-sticker { position: fixed; bottom: -35px; font-size: 24px; animation: floatUp linear infinite; user-select: none; pointer-events: none; z-index: 1; filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.65)); }
+    @keyframes floatUp { 0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.95; } 100% { transform: translateY(-120vh) scale(1.25) rotate(360deg); opacity: 0; } }
+    .music-btn { position: fixed; top: 16px; right: 16px; background: rgba(35, 10, 22, 0.85); border: 1.5px solid #ff4d88; color: #ffb3cc; border-radius: 50px; padding: 7px 15px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 7px; box-shadow: 0 0 16px rgba(255, 77, 136, 0.4); z-index: 100; backdrop-filter: blur(10px); }
+    .disc-spin { display: inline-block; animation: spin 3s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .welcome-overlay { position: fixed; inset: 0; background: rgba(5, 1, 3, 0.95); backdrop-filter: blur(14px); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 200; transition: opacity 0.6s ease, visibility 0.6s ease; text-align: center; padding: 24px; }
+    .welcome-overlay.hide { opacity: 0; visibility: hidden; }
+    .welcome-card { background: linear-gradient(145deg, rgba(40, 12, 28, 0.95), rgba(18, 5, 12, 0.95)); border: 1.8px solid #ff5c8a; box-shadow: 0 0 40px rgba(255, 92, 138, 0.45); padding: 35px 25px; border-radius: 30px; max-width: 340px; position: relative; }
+    .tap-btn { margin-top: 22px; background: linear-gradient(135deg, #ff416c, #ff4b8b); color: #fff; border: none; padding: 13px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 50px; cursor: pointer; box-shadow: 0 0 20px rgba(255, 65, 108, 0.7); }
+    .card-container { background: linear-gradient(160deg, rgba(32, 10, 22, 0.9), rgba(14, 4, 10, 0.94)); backdrop-filter: blur(18px); max-width: 440px; width: 100%; border-radius: 32px; padding: 24px 18px 20px; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 77, 136, 0.3); text-align: center; position: relative; z-index: 10; border: 1.5px solid rgba(255, 105, 180, 0.4); }
+    .card-teddy-decor-left { position: absolute; top: -16px; left: 12px; font-size: 1.7rem; filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.8)); z-index: 20; }
+    .card-cat-decor-right { position: absolute; top: -16px; right: 12px; font-size: 1.7rem; filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.8)); z-index: 20; }
+    .story-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 6px; }
+    .slide-badge { background: rgba(255, 77, 136, 0.18); color: #ff85ad; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 50px; border: 1px solid rgba(255, 133, 173, 0.35); }
+    .sticker-badge { font-size: 1.45rem; }
+    .slide { display: none; animation: fadeIn 0.45s ease-in-out; }
+    .slide.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .polaroid-frame { background: #16060f; padding: 10px 10px 14px 10px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75), 0 0 18px rgba(255, 105, 180, 0.2); margin: 8px auto 14px auto; max-width: 300px; border: 1.5px solid rgba(255, 105, 180, 0.3); position: relative; }
+    .polaroid-frame img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; display: block; }
+    .frame-cute-paw { position: absolute; top: 4px; left: 10px; font-size: 1.1rem; }
+    .frame-cute-sticker { position: absolute; bottom: 4px; right: 10px; font-size: 1.25rem; }
+    .message-header-box { background: rgba(255, 77, 136, 0.14); border: 1.5px dashed #ff4d88; border-radius: 16px; padding: 11px 12px; color: #ff99bb; font-size: 0.98rem; line-height: 1.45; font-weight: 600; margin-bottom: 12px; }
+    .body-message { color: #edd3dd; font-size: 0.92rem; line-height: 1.6; background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 14px; border: 1px solid rgba(255, 105, 180, 0.16); text-align: left; }
+    .bubu-box { background: linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.18)); border: 1.8px solid #ff4d88; border-radius: 16px; padding: 12px; margin-top: 14px; color: #ffd1e1; font-weight: 700; text-align: center; font-size: 0.96rem; }
+    .nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; }
+    .nav-btn { flex: 1; padding: 11px 18px; font-size: 0.9rem; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; }
+    .btn-prev { background: rgba(255, 255, 255, 0.08); color: #bbb; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .btn-prev:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn-next { background: linear-gradient(135deg, #ff2a6d, #ff6584); color: #fff; box-shadow: 0 0 18px rgba(255, 42, 109, 0.45); }
+    .dots-container { display: flex; justify-content: center; gap: 5px; margin-top: 14px; }
+    .dot { width: 6px; height: 6px; background: rgba(255, 105, 180, 0.25); border-radius: 50%; cursor: pointer; }
+    .dot.active { width: 16px; background: #ff4d88; border-radius: 10px; box-shadow: 0 0 8px #ff4d88; }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-card">
+      <div style="font-size: 2.8rem; margin-bottom: 10px;">🐾💌🧸</div>
+      <h2 style="color: #ff85ad; font-size: 1.3rem;">For My Favorite Person</h2>
+      <p style="color: #cfb2bc; font-size: 0.88rem; margin-top: 8px;">A cute little surprise is waiting for you...</p>
+      <button class="tap-btn" onclick="startSurprise()">Open With Love 💖</button>
+    </div>
+  </div>
+  <button class="music-btn" id="musicBtn" onclick="toggleAudio()"><span id="discIcon">🎵</span><span id="musicText">Song Paused</span></button>
+  <div class="card-container">
+    <div class="card-teddy-decor-left">🧸ྀི</div><div class="card-cat-decor-right">🐾🐱</div>
+    <div class="story-header"><div class="slide-badge" id="slideIndicator">PAGE 1 OF 11</div><div class="sticker-badge" id="topSticker">🌷🧸✨</div></div>
+    
+    <div class="slide active">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo1.JPG" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🎀🧸</span></div>
+      <div class="message-header-box">╭─ ⋆｡˚♡˚｡⋆ ─╮<br>🌷 Happy Boyfriend’s Day, my loveee! 🥹❤️<br>╰─ ⋆｡˚♡˚｡⋆ ─╯</div>
+      <div class="body-message">🧸ྀི You’re genuinely one of the most beautiful parts of my life. Thank you for being there through my random moods, silly talks, endless drama and everything in between. 🫂💗 I’m so grateful for every laugh, every conversation and every little memory we’ve made together. You’re not just my boyfriend, you’re someone incredibly precious to my heart. 🧿❤️</div>
+    </div>
+    
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo2.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🐱✨</span></div>
+      <div class="message-header-box">╭─ ୨୧ ─╮<br>🌙 If comfort had a face, I think it would look a little like you. 🥹<br>╰─ ୨୧ ─╯</div>
+      <div class="body-message">🪽 There’s something about your presence that makes everything feel softer and easier. 🌷✨</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo3.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">📖🎀</span></div>
+      <div class="message-header-box">╭─ 🧸ྀི⋆｡˚ ─╮<br>Some people enter your life<br>and quietly become your<br>favourite chapter. 📖💗<br>╰─ ⋆｡˚ 🧸ྀི ─╯</div>
+      <div class="body-message">🎀 And somehow, you became mine. 🥹❤️ Not because everything is perfect, but because even the imperfect moments with you feel worth holding onto. 🫶🏻</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo4.JPG" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🫧🐱</span></div>
+      <div class="message-header-box">╭─ 🫧⋆｡˚♡˚｡⋆🫧 ─╮<br>You’re the kind of person I could talk to for hours<br>and still feel like there’s so much more to say. 💌<br>╰─ 🫧⋆｡˚♡˚｡⋆🫧 ─╯</div>
+      <div class="body-message">🌸 Your voice, your little habits, your random thoughts—even the things you think are insignificant have somehow become my favourite things. 🥺💕</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo5.JPG" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🌙🧸</span></div>
+      <div class="message-header-box">╭─ 🌙⋆｡˚ ─╮<br>I don’t need a thousand beautiful moments;<br>give me a thousand ordinary ones with you. 🫂❤️<br>╰─ ⋆｡˚ 🌙 ─╯</div>
+      <div class="body-message">🦋 A random conversation, a stupid laugh, a little argument, a quiet evening—I’d choose those memories every time. 💗</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo6.JPG" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🧿💖</span></div>
+      <div class="message-header-box">╭─ 🧿♡🧿 ─╮<br>I hope you never underestimate how lovable you are.<br>You deserve to feel appreciated, admired and loved. ❤️<br>╰─ 🧿♡🧿 ─╯</div>
+      <div class="body-message">🌷 There are thousands of people in this world, yet somehow my heart feels safest around you. 🥹💗 Maybe that’s what makes you different.</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo7.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🪽🐱</span></div>
+      <div class="message-header-box">╭─ 🪽⋆｡˚♡˚｡⋆🪽 ─╮<br>I don’t need a perfect story,<br>I just want our little story<br>to keep growing. 🌷❤️<br>╰─ 🪽⋆｡˚♡˚｡⋆🪽 ─╯</div>
+      <div class="body-message">💌 You have no idea how many little pieces of happiness are attached to your name. 🥹✨ A notification from you, a random call, one stupid joke—you somehow turn the smallest things into memories I want to keep forever. 🫶🏻</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo8.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🌸🧸</span></div>
+      <div class="message-header-box">╭─ 🌸🫧🌸 ─╮<br>And if one day you wonder what you mean to me…<br>just know this:<br>you’re someone I genuinely want to see happy. ❤️‍🩹<br>╰─ 🌸🫧🌸 ─╯</div>
+      <div class="body-message">🧸 Every little smile of yours lights up my world. Thank you for simply existing and making my life so much brighter every single day. 🥹💕</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo9.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🌷✨</span></div>
+      <div class="message-header-box">╭─── ⋆｡°✩ ───╮<br>🌷 Tu paas ho toh dil ko sukoon sa milta hai,<br>Teri ek smile pe mera din khilta hai.<br>╰─── ⋆｡°✩ ───╯</div>
+      <div class="body-message">Na jaane kya jaadu hai teri baaton mein,<br>Tu mile toh har pal thoda aur haseen lagta hai. 🫶🏻❤️</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo10.JPG" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🦋🐱</span></div>
+      <div class="message-header-box">╭─── 🦋⋆｡˚ ───╮<br>Tera naam loon toh chehre pe smile aa jaati hai,<br>Teri yaad aaye toh aankhon mein chamak si chhaa jaati hai. ✨<br>╰─── 🦋⋆｡˚ ───╯</div>
+      <div class="body-message">Pata nahi ishq hai ya koi khoobsurat sa asar,<br>Par tu saath ho toh har cheez lagti hai behtar. 🥹💗</div>
+    </div>
+
+    <div class="slide">
+      <div class="polaroid-frame"><span class="frame-cute-paw">🐾</span><img src="photo11.jpg" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'"><span class="frame-cute-sticker">🐼ྀི🐻ྀི</span></div>
+      <div class="message-header-box">╭─── 🌙♡₊˚ ───╮<br>Na chaand chahiye, na sitaaron ki khwahish hai,<br>Bas tere saath ki thodi si guzarish hai. 🫂<br>╰─── 🌙♡₊˚ ───╯</div>
+      <div class="body-message">Tu rahe paas toh dil ko aur kya chahiye,<br>Meri har khushi mein bas tera hi zikr chahiye. ❤️‍🩹🌷
+        <div class="bubu-box">🐼ྀི i love ihh bole bubu dudu ko i love you dudu😋💗</div>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn btn-prev" id="prevBtn" onclick="changeSlide(-1)" disabled>⬅ Previous</button>
+      <button class="nav-btn btn-next" id="nextBtn" onclick="changeSlide(1)">Next ➔</button>
+    </div>
+    <div class="dots-container" id="dotsContainer"></div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const topSticker = document.getElementById('topSticker');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const stickers = ["🌷🧸✨", "🌙🐱✨", "📖🎀💗", "💌🐾🫧", "🦋🧸🌙", "🧿🌷❤️", "🪽🐱✨", "🌸🫧❤️‍🩹", "🌷✨🫶🏻", "🦋🐱🥹", "🐼❤️🐻"];
+    let currentIndex = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+    function updateSlide() {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+        dots[i].classList.toggle('active', i === currentIndex);
+      });
+      slideIndicator.innerText = `PAGE ${currentIndex + 1} OF ${slides.length}`;
+      topSticker.innerText = stickers[currentIndex];
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.innerHTML = currentIndex === slides.length - 1 ? "I Love You Dudu! 💖" : "Next ➔";
+    }
+
+    function changeSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex >= slides.length) currentIndex = slides.length - 1;
+      updateSlide();
+    }
+    function goToSlide(index) { currentIndex = index; updateSlide(); }
+
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 26 + 14;
+      bubble.style.width = size + 'px';
+      bubble.style.height = size + 'px';
+      bubble.style.left = Math.random() * 95 + 'vw';
+      bubble.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      document.body.appendChild(bubble);
+      setTimeout(() => bubble.remove(), 7500);
+    }
+    setInterval(createBubble, 400);
+
+    const cuteStickerList = ['🧸', '🐱', '🐾', '🎀', '🫧', '✨', '💖', '🌸', '🌷', '🐼', '🐻', '🐰'];
+    function createSticker() {
+      const sticker = document.createElement('div');
+      sticker.classList.add('floating-sticker');
+      sticker.innerHTML = cuteStickerList[Math.floor(Math.random() * cuteStickerList.length)];
+      sticker.style.left = Math.random() * 92 + 'vw';
+      sticker.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      document.body.appendChild(sticker);
+      setTimeout(() => sticker.remove(), 7500);
+    }
+    setInterval(createSticker, 600);
+
+    const audio = document.getElementById('bgMusic');
+    const musicText = document.getElementById('musicText');
+    const discIcon = document.getElementById('discIcon');
+    let isPlaying = false;
+
+    function startSurprise() {
+      document.getElementById('welcomeOverlay').classList.add('hide');
+      audio.play().then(() => {
+        isPlaying = true;
+        musicText.innerText = "Playing Song";
+        discIcon.classList.add('disc-spin');
+        discIcon.innerText = "💿";
+      }).catch(err => console.log(err));
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        musicText.innerText = "Song Paused";
+        discIcon.classList.remove('disc-spin');
+        discIcon.innerText = "🎵";
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          musicText.innerText = "Playing Song";
+          discIcon.classList.add('disc-spin');
+          discIcon.innerText = "💿";
+          isPlaying = true;
+        });
+      }
+    }
+  </script>
+</body>
+</html>
